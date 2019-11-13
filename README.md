@@ -1,2 +1,11 @@
 # restaurant-roulette
-Don't know where to eat? Think no more!
+
+### technologies to use
+Zomato API?
+Google API?
+React
+Node
+Express?
+SASS?
+
+
