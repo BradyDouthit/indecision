@@ -7,5 +7,3 @@ React
 Node  
 Express?  
 SASS?  
-
-
