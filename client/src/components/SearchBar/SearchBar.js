@@ -19,20 +19,22 @@ class SearchBar extends React.Component {
     getRestaurants = (event) => {
         event.preventDefault();
 
-        let zipCode = this.state.inputVal;
-        let apiKey = 'AIzaSyCFp64ncQAuA2JWf1Qqi1nzwGMNTWlLzpU';
-        let baseURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=';
-        let searchTerms = `Restaurants%20${zipCode}`;
-        let parameters = `inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${apiKey}`;
         let regexLiteral = /^\d{5}(?:[-\s]\d{4})?$/;
+        let zipCode = this.state.inputVal;
+        let clientID = process.env.REACT_APP_ID;
+        let clientSecret = process.env.REACT_APP_SECRET;
+        console.log(process.env)
+        let queryURL = `https://api.foursquare.com/v2/venues/search?near=${zipCode}&limit=5&intent=browse&categoryId=4d4b7105d754a06374d81259&client_id=${clientID}&client_secret=${clientSecret}&v=20191115`;
 
         if (regexLiteral.test(this.state.inputVal)) {
             console.log("success")
-            console.log(baseURL + searchTerms + parameters)
-            axios.get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${apiKey}`)
+            axios.get(queryURL)
             .then(response => {
-                this.setState({ inputVal: '' })
                 console.log(response)
+                let venues = response.data.response.venues;
+                venues.map(venue => {
+                    console.log(venue.name)
+                })
             })
         }
         else {

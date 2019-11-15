@@ -5,5 +5,5 @@ Express?
 SASS?  
 React  
 Node  
-Google Search API
-Axios
+Foursquare Search API  
+Axios  
