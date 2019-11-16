@@ -23,12 +23,13 @@ class SearchBar extends React.Component {
         let zipCode = this.state.inputVal;
         let clientID = process.env.REACT_APP_ID;
         let clientSecret = process.env.REACT_APP_SECRET;
-        let queryURL = `https://api.foursquare.com/v2/venues/search?near=${zipCode}&limit=5&intent=browse&categoryId=4d4b7105d754a06374d81259&client_id=${clientID}&client_secret=${clientSecret}&v=20191115`;
+        let queryURL = `https://api.foursquare.com/v2/venues/search?near=${zipCode}&intent=browse&categoryId=4d4b7105d754a06374d81259&client_id=${clientID}&client_secret=${clientSecret}&v=20191115`;
 
         if (regexLiteral.test(this.state.inputVal)) {
             console.log("success")
             axios.get(queryURL)
             .then(response => {
+                console.log(response)
                 let venues = response.data.response.venues;
                 this.props.setAppState(venues);
                 this.setState({ inputVal: '' });

@@ -3,13 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import IconCredit from './components/IconCredit/IconCredit';
+import arrayShuffle from 'array-shuffle';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
   }
   state = {
-    venues: []
+    venues: [],
+    venueOptions: []
   }
 
   componentDidUpdate() {
@@ -22,9 +24,11 @@ class App extends React.Component {
   }
 
   getOptions = () => {
-    this.state.venues.map(venue => {
-      console.log(venue.name);
-    })
+    let randomVenues = arrayShuffle(this.state.venues);
+    for (let i = 0; i < 5; i++) {
+      this.state.venueOptions.push(randomVenues[i])
+    }
+    console.log(this.state.venueOptions)
   }
 
   render() {
