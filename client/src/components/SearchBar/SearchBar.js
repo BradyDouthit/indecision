@@ -33,6 +33,7 @@ class SearchBar extends React.Component {
                 let venues = response.data.response.venues;
                 this.props.setAppState(venues);
                 this.setState({ inputVal: '' });
+                this.props.getOptions();
             });
         }
         else {
