@@ -12,11 +12,13 @@ class App extends React.Component {
   }
   state = {
     venues: [],
-    venueOptions: []
+    venueOptions: [],
+    message: ''
   }
 
-  setAppState = venues => {
-    this.setState({ venues: venues })
+  setAppState = (venues, message) => {
+    this.setState({ venues: venues });
+    this.setState({ message: message });
     console.log(this.state);
   }
 
@@ -39,7 +41,8 @@ class App extends React.Component {
           <h3>Tired of deciding where to eat? Me too...which is why I am building this app. Enter your location and spin the wheel to pick a place!</h3>
           <SearchBar getOptions={this.getOptions} setAppState={this.setAppState} />
           <div id="option">
-            {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div>no options</div>}
+            {this.state.message ? <div id="error-message">{this.state.message}</div> : <div></div>}
+            {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
           </div>
           <IconCredit />
         </div>

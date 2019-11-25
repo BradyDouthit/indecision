@@ -35,6 +35,13 @@ class SearchBar extends React.Component {
                 this.props.setAppState(venues);
                 this.setState({ inputVal: '' });
                 this.props.getOptions();
+            })
+            .catch(error => {
+                let errorCode = error.response.data.meta.code;
+                if (errorCode === 400) {
+                    console.log("Could not find zip code.")
+                    this.props.setAppState([], "Could not find zip code.");
+                };
             });
         }
         else {
