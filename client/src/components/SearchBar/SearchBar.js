@@ -46,6 +46,7 @@ class SearchBar extends React.Component {
         }
         else {
             console.log("please enter a valid zip code")
+            this.props.setAppState([], "Please enter a valid zip code.");
         }
     };
 

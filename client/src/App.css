@@ -23,12 +23,12 @@
 }
 
 #icon-credit, #icon-credit a {
-  font-size: x-small;
+  font-size: xx-small;
   color: black;
 }
 
 #icon-credit {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
 }
