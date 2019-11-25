@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './SearchBar.css'
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -21,8 +22,8 @@ class SearchBar extends React.Component {
 
         let regexLiteral = /^\d{5}(?:[-\s]\d{4})?$/;
         let zipCode = this.state.inputVal;
-        let clientID = process.env.REACT_APP_ID;
-        let clientSecret = process.env.REACT_APP_SECRET;
+        let clientID = process.env.REACT_APP_CLIENT_ID;
+        let clientSecret = process.env.REACT_APP_CLIENT_SECRET;
         let queryURL = `https://api.foursquare.com/v2/venues/search?near=${zipCode}&intent=browse&categoryId=4d4b7105d754a06374d81259&client_id=${clientID}&client_secret=${clientSecret}&v=20191115`;
 
         if (regexLiteral.test(this.state.inputVal)) {
@@ -44,13 +45,14 @@ class SearchBar extends React.Component {
     render() {
         return (
             <div id="searchbar-container">
-                <form>
+                <form id="searchbar-form">
                     <input
+                        id="searchbar-input"
                         type="text"
                         value={this.state.inputVal}
                         onChange={this.handleChange}
                         placeholder="enter zip code" />
-                    <button onClick={this.getRestaurants}>Search</button>
+                    <button id="searchbar-button" onClick={this.getRestaurants}>Search</button>
                 </form>
             </div>
         )

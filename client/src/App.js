@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import SearchBar from './components/SearchBar/SearchBar';
 import IconCredit from './components/IconCredit/IconCredit';
 import arrayShuffle from 'array-shuffle';
-import Options from './Options/Options';
+import Options from './components/Options/Options';
 import './App.css';
 
 class App extends React.Component {
