@@ -4,22 +4,49 @@ import SearchBar from './components/SearchBar/SearchBar';
 import IconCredit from './components/IconCredit/IconCredit';
 import arrayShuffle from 'array-shuffle';
 import Options from './components/Options/Options';
+import anime from 'animejs';
 import './App.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
   }
+  optionRef = React.createRef();
   state = {
     venues: [],
     venueOptions: [],
-    message: ''
+    message: '',
+    showOptions: false
   }
 
-  setAppState = (venues, message) => {
+  componentDidMount() {
+    
+  }
+
+  setAppState = (venues, message, showOptions) => {
     this.setState({ venues: venues });
     this.setState({ message: message });
-    console.log(this.state);
+    this.setState({ showOptions: showOptions })
+
+    console.log(this.state.showOptions);
+
+    this.playAnimation();
+  }
+
+  playAnimation = (hasBeenPlayed) => {
+    anime({
+      targets: this.optionRef.current,
+      // translateY: [
+      //     { value: -190, duration: 1000 },
+      //     { value: 0, duration: 1000 }
+      // ],
+      scale: [
+        { value: 0.2, duration: 0 },
+        { value: 1, duration: 500}
+      ],
+      //easing: 'spring(1, 80, 10, 0)',
+      autoplay: false
+    }).play();
   }
 
   getOptions = () => {
@@ -37,12 +64,14 @@ class App extends React.Component {
       <div className="App">
         <div className="App-main">
           <img alt="logo" className="App-logo" src={logo}></img>
-          <h2>Welcome to Restaurant Roulette!</h2>
-          <h3>Tired of deciding where to eat? Me too...which is why I am building this app. Enter your location and spin the wheel to pick a place!</h3>
+          <h2 id="welcome">Welcome to Restaurant Roulette!</h2>
+          <h3 id="description">Tired of deciding where to eat? Me too...which is why I am building this app. Enter your zip code and pick a place!</h3>
           <SearchBar getOptions={this.getOptions} setAppState={this.setAppState} />
+          {this.state.message ? <div id="error-message">{this.state.message}</div> : <div></div>}
           <div id="option">
-            {this.state.message ? <div id="error-message">{this.state.message}</div> : <div></div>}
-            {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
+            <ul ref={this.optionRef} id="option-ul">
+              {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
+            </ul>
           </div>
           <IconCredit />
         </div>

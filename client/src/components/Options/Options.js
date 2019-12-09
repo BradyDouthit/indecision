@@ -5,16 +5,12 @@ class Options extends React.Component {
     constructor(props) {
         super(props)
     }
-    state= {
+    state = {
         
     }
     render() {
         return (
-            <div>
-                <ul id="option-ul">
-                    <li>{this.props.venue.name}</li>
-                </ul>
-            </div>
+            <li className="option">{this.props.venue.name}</li>
         )
     }
 }

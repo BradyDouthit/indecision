@@ -32,7 +32,7 @@ class SearchBar extends React.Component {
             .then(response => {
                 console.log(response)
                 let venues = response.data.response.venues;
-                this.props.setAppState(venues);
+                this.props.setAppState(venues, "", true);
                 this.setState({ inputVal: '' });
                 this.props.getOptions();
             })
@@ -40,13 +40,13 @@ class SearchBar extends React.Component {
                 let errorCode = error.response.data.meta.code;
                 if (errorCode === 400) {
                     console.log("Could not find zip code.")
-                    this.props.setAppState([], "Could not find zip code.");
+                    this.props.setAppState([], "Could not find zip code.", false);
                 };
             });
         }
         else {
             console.log("please enter a valid zip code")
-            this.props.setAppState([], "Please enter a valid zip code.");
+            this.props.setAppState([], "Please enter a valid zip code.", false);
         }
     };
 

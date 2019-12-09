@@ -22,3 +22,8 @@
 #searchbar-input:focus {
     outline: none;
 }
+
+#searchbar-container {
+    position: absolute;
+    margin-top: 70px;
+}
