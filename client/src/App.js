@@ -44,6 +44,7 @@ class App extends React.Component {
         { value: 0.2, duration: 0 },
         { value: 1, duration: 500}
       ],
+      color: '#5dc734',
       //easing: 'spring(1, 80, 10, 0)',
       autoplay: false
     }).play();
