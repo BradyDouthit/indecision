@@ -5,6 +5,7 @@ import IconCredit from './components/IconCredit/IconCredit';
 import arrayShuffle from 'array-shuffle';
 import Options from './components/Options/Options';
 import anime from 'animejs';
+import Modal from 'react-animated-modal';
 import './App.css';
 
 class App extends React.Component {
@@ -16,19 +17,19 @@ class App extends React.Component {
     venues: [],
     venueOptions: [],
     message: '',
-    showOptions: false
+    showModal: false
   }
 
   componentDidMount() {
-    
+
   }
 
-  setAppState = (venues, message, showOptions) => {
+  setAppState = (venues, message, showModal) => {
     this.setState({ venues: venues });
     this.setState({ message: message });
-    this.setState({ showOptions: showOptions })
+    this.setState({ showModal: showModal })
 
-    console.log(this.state.showOptions);
+    console.log(this.state.showModal);
 
     this.playAnimation();
   }
@@ -42,7 +43,7 @@ class App extends React.Component {
       // ],
       scale: [
         { value: 0.2, duration: 0 },
-        { value: 1, duration: 500}
+        { value: 1, duration: 3000 }
       ],
       color: '#5dc734',
       //easing: 'spring(1, 80, 10, 0)',
@@ -63,17 +64,22 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <div id="option">
+            <Modal
+              visible={this.state.showModal}
+              closemodal={() => this.setState({ showModal: false })}
+              type="flipInX">
+              <ul ref={this.optionRef} id="option-ul">
+                {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
+              </ul>
+            </Modal>
+          </div>
         <div className="App-main">
           <img alt="logo" className="App-logo" src={logo}></img>
           <h2 id="welcome">Welcome to Restaurant Roulette!</h2>
           <h3 id="description">Tired of deciding where to eat? Me too...which is why I am building this app. Enter your zip code and pick a place!</h3>
           <SearchBar getOptions={this.getOptions} setAppState={this.setAppState} />
           {this.state.message ? <div id="error-message">{this.state.message}</div> : <div></div>}
-          <div id="option">
-            <ul ref={this.optionRef} id="option-ul">
-              {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
-            </ul>
-          </div>
           <IconCredit />
         </div>
       </div>

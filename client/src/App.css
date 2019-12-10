@@ -4,8 +4,7 @@
 
 .App-logo {
   height: 20vmin;
-  position: absolute;
-  top: 5%;
+  
 }
 
 .App-main {
@@ -37,32 +36,32 @@
 
 #error-message {
   color: red;
-  position: absolute;
-  margin-top: 99px;
 }
 
 #option-ul {
-  text-align: left;
+  text-align: center;
   padding-inline-start: 0px;
   min-width: 50%;
   min-height: 30%;
-  margin-top: 55vh;
+  margin: 50px 0;
 }
 
 .option {
   list-style-type: none;
   font-weight: bold;
+  font-size: 20px;
+  margin: 20px 0;
 }
 
 #description, #welcome {
-  position: absolute;
-}
-
-#welcome {
-  top: 25%;
 }
 
 #description {
-  top: 35%;
+  margin-top: 0;
+}
+#welcome {
+}
+
+#description {
   width: 80%;
 }
