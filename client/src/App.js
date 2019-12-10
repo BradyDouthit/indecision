@@ -34,21 +34,23 @@ class App extends React.Component {
     this.playAnimation();
   }
 
-  playAnimation = (hasBeenPlayed) => {
-    anime({
+  playAnimation = () => {
+    let animation = anime({
       targets: this.optionRef.current,
-      // translateY: [
-      //     { value: -190, duration: 1000 },
-      //     { value: 0, duration: 1000 }
-      // ],
-      scale: [
-        { value: 0.2, duration: 0 },
-        { value: 1, duration: 3000 }
+      keyframes: [
+        {scale: 0.2, duration: 0},
+        {scale: 1, duration: 1500},
+        {color: '#5dc734', duration: 1000},
       ],
-      color: '#5dc734',
-      //easing: 'spring(1, 80, 10, 0)',
+      // scale: [
+      //   { value: 0.2, duration: 0 },
+      //   { value: 1, duration: 2000 }
+      // ],
+      //color: ['#00000', '#5dc734'],
       autoplay: false
-    }).play();
+    });
+
+    animation.play();
   }
 
   getOptions = () => {
@@ -65,15 +67,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <div id="option">
-            <Modal
-              visible={this.state.showModal}
-              closemodal={() => this.setState({ showModal: false })}
-              type="flipInX">
-              <ul ref={this.optionRef} id="option-ul">
-                {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
-              </ul>
-            </Modal>
-          </div>
+          <Modal
+            visible={this.state.showModal}
+            closemodal={() => this.setState({ showModal: false })}
+            type="flipInX">
+            <ul ref={this.optionRef} id="option-ul">
+              {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
+            </ul>
+          </Modal>
+        </div>
         <div className="App-main">
           <img alt="logo" className="App-logo" src={logo}></img>
           <h2 id="welcome">Welcome to Restaurant Roulette!</h2>

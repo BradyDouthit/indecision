@@ -53,6 +53,10 @@
   margin: 20px 0;
 }
 
+.address {
+  list-style-type: none;
+}
+
 #description, #welcome {
 }
 

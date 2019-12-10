@@ -37,8 +37,8 @@ class SearchBar extends React.Component {
                 this.props.getOptions();
             })
             .catch(error => {
-                let errorCode = error.response.data.meta.code;
-                if (errorCode === 400) {
+                //let errorCode = error.response.data.meta.code;
+                if (error.response) {
                     console.log("Could not find zip code.")
                     this.props.setAppState([], "Could not find zip code.", false);
                 };

@@ -10,7 +10,10 @@ class Options extends React.Component {
     }
     render() {
         return (
+            <>
             <li className="option">{this.props.venue.name}</li>
+            <li className="address">{this.props.venue.location.formattedAddress[0] + ", " +  this.props.venue.location.formattedAddress[1]}</li>
+            </>
         )
     }
 }
