@@ -9,4 +9,5 @@ React
 Node  
 Foursquare Search API  
 Axios  
-AnimeJS
+AnimeJS  
+ReactAnimatedModal  
