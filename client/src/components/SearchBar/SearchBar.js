@@ -30,11 +30,12 @@ class SearchBar extends React.Component {
             console.log("success")
             axios.get(queryURL)
             .then(response => {
-                console.log(response)
+                console.log(this.props.playBackgroundAnimation)
                 let venues = response.data.response.venues;
                 this.props.setAppState(venues, "", true);
                 this.setState({ inputVal: '' });
                 this.props.getOptions();
+                this.props.playBackgroundAnimation(false, this.props.mainPageBackground)
             })
             .catch(error => {
                 //let errorCode = error.response.data.meta.code;
