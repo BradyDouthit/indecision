@@ -4,8 +4,9 @@
 }
 
 .App-logo {
-  height: 20vmin;
-  
+  height: 25vw;
+  margin-top: -5vh;
+  margin-bottom: 3vh;
 }
 
 .App-main {
@@ -65,7 +66,7 @@
 }
 
 .click-to-copy {
-  color: white;
+  color: #ffbdf8;
   font-size: 150%;
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
@@ -79,6 +80,7 @@
   position: absolute;
   z-index: 10;
   overflow: hidden;
+  text-align: center;
 }
 
 #main-background {
@@ -95,7 +97,7 @@
 
 #options-background {
   background-color: #770058;
-  color: black;
+  color: #ffbdf8;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -114,7 +116,7 @@
 #options-container {
   width: 80%;
   height: 100%;
-  margin-left: 10%;
+  margin-left: 17.5%;
   position: absolute;
   top: 0;
 }
@@ -169,18 +171,30 @@ input:focus {
 }
 
 #description {
-  margin-top: 0;
+  margin: 15% auto;
+  width: 80%;
 }
+
 #welcome {
+  font-size: 150%;
   padding: 0 20px;
 }
 
-#description {
-  width: 80%;
+h1 {
+  font-weight: 900;
+  font-size: 1em;
 }
 
 @media only screen and (max-width: 600px) {
   .fas {
     font-size: 70%;
+  }
+
+  #back-button {
+    margin-top: 40%;
+  }
+  
+  .option {
+    margin: 10px auto;
   }
 }

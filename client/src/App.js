@@ -101,48 +101,40 @@ class App extends React.Component {
         <div
           id="welcome-background"
           ref={this.bgRef}>
-          <h1 id="welcome">Welcome to Restaurant Roulette</h1>
+          <h2 id="welcome">Welcome to Restaurant Roulette!</h2>
+          <h3 id="description">Tired of deciding where to eat? Me too...which is why I am building this app. <strong>Step one: click the button below!</strong></h3>
           {this.state.welcomeDrawerIsOpen ?
             <button onClick={() => this.playBackgroundAnimation(false, "#welcome-background")} id="back-button">
               Click me to get started!
             </button> :
-            <div 
-              onClick={() => this.playBackgroundAnimation(true, "#welcome-background")} 
+            <div
+              onClick={() => this.playBackgroundAnimation(true, "#welcome-background")}
               id="closed-drawer-container">
-                <div id="back">
+              <div id="back">
                 <i className="fas fa-info-circle"></i>
-                </div>
+              </div>
             </div>
           }
         </div>
         <div
-          id="options-background">
-          <div id="options-container">
-            <h1 className="click-to-copy">Click to copy an address!</h1>
-            <ul ref={this.optionRef} id="option-ul">
-              {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
-            </ul>
-          </div>
-        </div>
-        <div
           id="main-background">
-          {this.state.mainDrawerIsOpen ? 
-          <div 
-            onClick={() => this.playBackgroundAnimation(false, "#main-background")} 
-            id="closed-drawer-container">
+          {this.state.mainDrawerIsOpen ?
+            <div
+              onClick={() => this.playBackgroundAnimation(false, "#main-background")}
+              id="closed-drawer-container">
               <div id="back">
                 <i className="fas fa-search"></i>
               </div>
-          </div> : 
-          <div 
-            onClick={() => this.playBackgroundAnimation(true, "#main-background")} 
-            id="closed-drawer-container">
+            </div> :
+            <div
+              onClick={() => this.playBackgroundAnimation(true, "#main-background")}
+              id="closed-drawer-container">
               <div id="back"><i className="fas fa-search"></i></div>
-          </div>}
+            </div>}
           <div className="App-main">
             <img alt="logo" className="App-logo" src={logo}></img>
-            <h2 id="welcome">Welcome to Restaurant Roulette!</h2>
-            <h3 id="description">Tired of deciding where to eat? Me too...which is why I am building this app. To find a place, simply enter your zip code and pick a place!</h3>
+            <h1><strong>STEP TWO: </strong></h1>
+            <h3>Enter your zip to get a choice between 5 locations.</h3>
             <SearchBar
               optionPageBackground={"#options-background"}
               mainPageBackground={"#main-background"}
@@ -151,6 +143,16 @@ class App extends React.Component {
               setAppState={this.setAppState} />
             {this.state.message ? <div id="error-message">{this.state.message}</div> : <div></div>}
             <IconCredit />
+          </div>
+        </div>
+        <div
+          id="options-background">
+          <div id="options-container">
+            <h1><strong>STEP THREE: Pick a place.</strong></h1>
+            <h1>I know this can be difficult, but I've really narrowed it down for you. Once you've decided, click an address to copy it</h1>
+            <ul ref={this.optionRef} id="option-ul">
+              {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
+            </ul>
           </div>
         </div>
         <div id="option">
