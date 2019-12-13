@@ -46,7 +46,7 @@ class App extends React.Component {
       keyframes: [
         { scale: 0.2, duration: 0 },
         { scale: 1, duration: 1500 },
-        { color: '#5dc734', duration: 1000 },
+        { color: '#ffbdf8', duration: 1000 },
       ],
       autoplay: false
     });
@@ -103,14 +103,22 @@ class App extends React.Component {
           ref={this.bgRef}>
           <h1 id="welcome">Welcome to Restaurant Roulette</h1>
           {this.state.welcomeDrawerIsOpen ?
-            <button onClick={() => this.playBackgroundAnimation(false, "#welcome-background")} id="back-button">Click me to get started!</button> :
-            <div onClick={() => this.playBackgroundAnimation(true, "#welcome-background")} id="closed-drawer-container"><div id="back">></div></div>
+            <button onClick={() => this.playBackgroundAnimation(false, "#welcome-background")} id="back-button">
+              Click me to get started!
+            </button> :
+            <div 
+              onClick={() => this.playBackgroundAnimation(true, "#welcome-background")} 
+              id="closed-drawer-container">
+                <div id="back">
+                <i className="fas fa-info-circle"></i>
+                </div>
+            </div>
           }
         </div>
         <div
           id="options-background">
           <div id="options-container">
-            <h1 className="click-to-copy">Click to copy address</h1>
+            <h1 className="click-to-copy">Click to copy an address!</h1>
             <ul ref={this.optionRef} id="option-ul">
               {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
             </ul>
@@ -118,7 +126,19 @@ class App extends React.Component {
         </div>
         <div
           id="main-background">
-          {this.state.mainDrawerIsOpen ? <div onClick={() => this.playBackgroundAnimation(false, "#main-background")} id="closed-drawer-container"><div id="back">X</div></div> : <div onClick={() => this.playBackgroundAnimation(true, "#main-background")} id="closed-drawer-container"><div id="back">></div></div>}
+          {this.state.mainDrawerIsOpen ? 
+          <div 
+            onClick={() => this.playBackgroundAnimation(false, "#main-background")} 
+            id="closed-drawer-container">
+              <div id="back">
+                <i className="fas fa-search"></i>
+              </div>
+          </div> : 
+          <div 
+            onClick={() => this.playBackgroundAnimation(true, "#main-background")} 
+            id="closed-drawer-container">
+              <div id="back"><i className="fas fa-search"></i></div>
+          </div>}
           <div className="App-main">
             <img alt="logo" className="App-logo" src={logo}></img>
             <h2 id="welcome">Welcome to Restaurant Roulette!</h2>
