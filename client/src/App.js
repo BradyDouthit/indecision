@@ -134,7 +134,7 @@ class App extends React.Component {
           <div className="App-main">
             <img alt="logo" className="App-logo" src={logo}></img>
             <h1><strong>STEP TWO: </strong></h1>
-            <h3>Enter your zip to get a choice between 5 locations.</h3>
+            <h3>Enter your zip to get a choice of 5 locations.</h3>
             <SearchBar
               optionPageBackground={"#options-background"}
               mainPageBackground={"#main-background"}
