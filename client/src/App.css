@@ -98,6 +98,12 @@
   overflow: hidden;
 }
 
+#options-container {
+  width: 80%;
+  height: 100%;
+  margin-left: 10%;
+}
+
 #back {
   font-size: 150%;
   position: relative;
