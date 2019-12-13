@@ -65,9 +65,9 @@ class App extends React.Component {
   }
 
   playBackgroundAnimation = (isOpen, id) => {
-    let translateX = "-95%";
+    let translateX = "-93%";
     console.log(id)
-    id === "#main-background" ? translateX = "-90%" : translateX = translateX;
+    id === "#main-background" ? translateX = "-86%" : translateX = translateX;
 
     if (isOpen) {
       anime({

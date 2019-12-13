@@ -115,6 +115,8 @@
   width: 80%;
   height: 100%;
   margin-left: 10%;
+  position: absolute;
+  top: 0;
 }
 
 #back {
@@ -159,7 +161,7 @@ input:focus {
   top: 0;
   right: 0;
   height: 100%;
-  width: 5%;
+  width: 7%;
 }
 
 #closed-drawer-container:hover {
@@ -175,4 +177,10 @@ input:focus {
 
 #description {
   width: 80%;
+}
+
+@media only screen and (max-width: 600px) {
+  .fas {
+    font-size: 70%;
+  }
 }
