@@ -113,7 +113,7 @@ class App extends React.Component {
               <div id="back">
                 <i className="fas fa-info-circle"></i>
               </div>
-              
+
             </div>
           }
         </div>
@@ -144,7 +144,10 @@ class App extends React.Component {
               setAppState={this.setAppState} />
             {this.state.message ? <div id="error-message">{this.state.message}</div> : <div></div>}
           </div>
-          <IconCredit />
+          <div className="footer">
+            <div id="copyright">&copy; Copyright Brady Douthit 2019. All rights reserved.</div>
+            <IconCredit />
+          </div>
         </div>
         <div
           id="options-background">
@@ -155,9 +158,6 @@ class App extends React.Component {
               {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
             </ul>
           </div>
-        </div>
-        <div className="footer">
-            <div id="copyright">&copy; Copyright Brady Douthit 2019. All rights reserved.</div>
         </div>
       </div>
     );
