@@ -113,6 +113,7 @@ class App extends React.Component {
               <div id="back">
                 <i className="fas fa-info-circle"></i>
               </div>
+              
             </div>
           }
         </div>
@@ -142,26 +143,21 @@ class App extends React.Component {
               getOptions={this.getOptions}
               setAppState={this.setAppState} />
             {this.state.message ? <div id="error-message">{this.state.message}</div> : <div></div>}
-            <IconCredit />
           </div>
+          <IconCredit />
         </div>
         <div
           id="options-background">
           <div id="options-container">
             <h1><strong>STEP THREE: Pick a place.</strong></h1>
-            <h1>I know this can be difficult, but I've really narrowed it down for you. Once you've decided, click an address to copy it</h1>
+            <h1>I know this can be difficult, but I've really narrowed it down for you. Once you've decided, click an address to copy it!</h1>
             <ul ref={this.optionRef} id="option-ul">
               {this.state.venueOptions.length ? this.state.venueOptions.map(venue => <Options key={venue.id} venue={venue} />) : <div></div>}
             </ul>
           </div>
         </div>
-        <div id="option">
-          <Modal
-            visible={this.state.showModal}
-            closemodal={() => this.setState({ showModal: false })}
-            type="flipInX">
-
-          </Modal>
+        <div className="footer">
+            <div id="copyright">&copy; Copyright Brady Douthit 2019. All rights reserved.</div>
         </div>
       </div>
     );
