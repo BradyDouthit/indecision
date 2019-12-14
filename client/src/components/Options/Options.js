@@ -21,7 +21,7 @@ class Options extends React.Component {
             <>
             <li className="option">{this.props.venue.name}</li>
             <form>
-            <input 
+            <textarea 
                 onClick={this.copyToClipboard} 
                 className="address"
                 ref={(textarea) => this.textArea = textarea}

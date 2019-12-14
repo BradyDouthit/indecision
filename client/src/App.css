@@ -26,13 +26,13 @@
 
 #icon-credit, #icon-credit a {
   font-size: xx-small;
-  color: black;
 }
 
 #icon-credit {
-  position: fixed;
-  bottom: 0;
+  position: absolute;
   left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 #error-message {
@@ -44,9 +44,12 @@
   padding-inline-start: 0px;
   min-width: 50%;
   min-height: 30%;
-  margin: 30px 0;
+  margin: 10px 0;
 }
 
+textarea {
+  resize: none;
+}
 .option {
   list-style-type: none;
   font-weight: bold;
@@ -57,7 +60,7 @@
 .address {
   list-style-type: none;
   padding: 0 10px;
-  width: 50%;
+  width: 80%;
   text-align: center;
   border-radius: 10px;
   border: none;
@@ -116,7 +119,7 @@
 #options-container {
   width: 80%;
   height: 100%;
-  margin-left: 17.5%;
+  margin-left: 17%;
   position: absolute;
   top: 0;
 }
@@ -158,6 +161,10 @@ input:focus {
   outline: 0;
 }
 
+textarea:focus {
+  outline: 0;
+}
+
 #closed-drawer-container {
   position: absolute;
   top: 0;
@@ -171,7 +178,7 @@ input:focus {
 }
 
 #description {
-  margin: 15% auto;
+  margin: 0 auto;
   width: 80%;
 }
 
@@ -180,9 +187,24 @@ input:focus {
   padding: 0 20px;
 }
 
+.footer {
+  position: absolute;
+  height: 5%;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  margin-left: 10%;
+  z-index: 8;
+  color: #ffbdf8;
+}
+
 h1 {
   font-weight: 900;
   font-size: 1em;
+}
+
+a {
+  color: #ffbdf8;
 }
 
 @media only screen and (max-width: 600px) {
@@ -196,5 +218,33 @@ h1 {
   
   .option {
     margin: 10px auto;
+  }
+
+  .footer {
+    height: 8%;
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: 0.9em;
+  }
+
+  #copyright {
+    font-size: 70%;
+  }
+
+  #option-ul {
+    height: 100%;
+    overflow-y: scroll;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  #back-button {
+    margin-top: 0px;
+  }
+
+  #step-one {
+    margin: 10% auto;
   }
 }
