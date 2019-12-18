@@ -1,11 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
+import globe from './earth-globe.svg';
 import SearchBar from './components/SearchBar/SearchBar';
 import IconCredit from './components/IconCredit/IconCredit';
 import arrayShuffle from 'array-shuffle';
 import Options from './components/Options/Options';
 import anime from 'animejs';
-import Modal from 'react-animated-modal';
 import './App.css';
 
 class App extends React.Component {
@@ -101,8 +101,10 @@ class App extends React.Component {
         <div
           id="welcome-background"
           ref={this.bgRef}>
-          <h2 id="welcome">Welcome to indecision!</h2>
+          <h2 id="welcome">Welcome to Indecision!</h2>
+          <img alt="globe" className="App-logo" src={logo}></img>
           <h3 id="description">Tired of deciding where to eat? Me too...which is why I am building this app. Think no more! I will narrow it down for you.</h3>
+          <div id="step-one-container">
           <h3 id="step-one"><strong>STEP ONE: click the button below!</strong></h3>
           {this.state.welcomeDrawerIsOpen ?
             <button onClick={() => this.playBackgroundAnimation(false, "#welcome-background")} id="back-button">
@@ -117,6 +119,7 @@ class App extends React.Component {
 
             </div>
           }
+          </div>
         </div>
         <div
           id="main-background">
@@ -134,7 +137,7 @@ class App extends React.Component {
               <div id="back"><i className="fas fa-search"></i></div>
             </div>}
           <div className="App-main">
-            <img alt="logo" className="App-logo" src={logo}></img>
+            <img alt="globe" className="App-logo" src={globe}></img>
             <h1><strong>STEP TWO: </strong></h1>
             <h3>Enter your zip to get a choice of 5 locations.</h3>
             <SearchBar

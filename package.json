@@ -9,7 +9,6 @@
     "express": "^4.16.2",
     "if-env": "^1.0.4",
     "nodemon": "^1.19.4",
-    "react-animated-modal": "^1.1.1",
     "react-scripts": "3.1.2",
     "spectre.css": "^0.5.0"
   },
