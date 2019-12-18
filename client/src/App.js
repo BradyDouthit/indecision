@@ -101,7 +101,7 @@ class App extends React.Component {
         <div
           id="welcome-background"
           ref={this.bgRef}>
-          <h2 id="welcome">Welcome to Restaurant Roulette!</h2>
+          <h2 id="welcome">Welcome to indecision!</h2>
           <h3 id="description">Tired of deciding where to eat? Me too...which is why I am building this app. Think no more! I will narrow it down for you.</h3>
           <h3 id="step-one"><strong>STEP ONE: click the button below!</strong></h3>
           {this.state.welcomeDrawerIsOpen ?
