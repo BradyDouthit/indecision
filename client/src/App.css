@@ -24,6 +24,11 @@
   color: #09d3ac;
 }
 
+::selection {
+  background: red;
+  color: #ffbdf8;
+}
+
 #icon-credit, #icon-credit a {
   font-size: xx-small;
 }
