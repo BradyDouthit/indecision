@@ -28,23 +28,15 @@
   font-size: xx-small;
 }
 
-#icon-credit {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 #error-message {
   color: red;
 }
 
 #option-ul {
-  text-align: center;
   padding-inline-start: 0px;
-  min-width: 50%;
-  min-height: 30%;
   margin: 10px 0;
+  height: 60%;
+  overflow-y: scroll;
 }
 
 textarea {
@@ -128,7 +120,6 @@ textarea {
   font-size: 150%;
   position: relative;
   top: 50%;
-  width: 20px;
   margin: 0 auto;
 }
 
@@ -190,7 +181,6 @@ textarea:focus {
 
 .footer {
   position: absolute;
-  height: 5%;
   bottom: 0;
   left: 0;
   width: 80%;
@@ -261,10 +251,7 @@ a {
   }
   .App-logo {
     height: 12vw;
-  }
-
-  #description {
-    width: 100%;
+    margin-bottom: 0;
   }
 
   #back-button {
