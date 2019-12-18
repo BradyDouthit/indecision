@@ -35,8 +35,6 @@
 #option-ul {
   padding-inline-start: 0px;
   margin: 10px 0;
-  height: 60%;
-  overflow-y: scroll;
 }
 
 textarea {
@@ -228,11 +226,6 @@ a {
     font-size: 70%;
   }
 
-  #option-ul {
-    height: 100%;
-    overflow-y: scroll;
-  }
-
   #step-one-container {
     margin: 0 auto;
     width: 80%;
@@ -244,6 +237,11 @@ a {
 @media only screen and (max-height: 500px) {
   #back-button {
     margin-top: 0px;
+  }
+
+  #option-ul {
+    height: 60%;
+    overflow-y: scroll;
   }
 
   #step-one-container {
